@@ -6,7 +6,7 @@ defmodule ExPTT.Application do
   @impl true
   def start(_type, _args) do
     {options, [], []} = OptionParser.parse(System.argv(), strict: [config: :string])
-    config = Keyword.get(options, :config, "~/.config/exptt/config")
+    config = Keyword.get(options, :config, "#{System.user_home()}/.config/exptt/config")
 
     children = [
       ExPTT.XDo,
